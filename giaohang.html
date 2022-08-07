@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>WATCHVN</title>
+		<link type="text/css" rel="stylesheet" href="watchvn.css">
+	</head>
+	<body onLoad="showMenu();showProduct();checklogin();">
+		<div id="nav">
+			<div class="container">
+				<div class="topnav">
+					
+					<ul class="right">
+						<li><button onClick="showform()"><img src="./img/icon_account1.png"></button></li>
+						<li><button onClick="location.href='cart.html'"><img src="./img/icon_cart.png"></button></li>
+						<li><button onClick="showSearch()"><img src="./img/icon_search1.png"></button></li>
+					</ul>
+				</div>
+				<div class="botnav">
+					<div class="logo"><a href="watchvn.html"><img src="./img/logo/logoPNG.png"></a></div>
+					<div><button id="btnmenu" onclick="showMenuMobile()">&#9776;</button></div>
+					<ul id="navmenu">
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="user" class="modal">
+			<div id="login">
+				<form id="loginform">
+					<button type="button" class="close" onClick="closeform()">+</button>
+					<h2>ĐĂNG NHẬP</h2>
+					<div class="logininfo">
+						<div class="col">
+							<label for="usernameLogin">Tên đăng nhập:</label>
+							<input type="text" id="usernameLogin">
+							<div id="usernameerror">Bạn chưa nhập tên đăng nhập</div>
+							<label for="passwordLogin">Mật khẩu:</label>
+							<input type="password" id="passwordLogin">
+							<div id="passwordloginerror">Bạn chưa nhập mật khẩu</div>
+						</div>
+					</div>
+					<button type="submit" id="btnlogin">Login</button>
+					<p>Bạn chưa có tài khoản? <a href="#" onClick="showSignUp()">Đăng ký</a></p>
+				</form>
+			</div>
+			<div id="signup">
+				<form id="signupform">
+					<button type="button" class="close" onClick="closeform()">+</button>
+					<h2>ĐĂNG KÝ</h2>
+					<div class="signupinfo">
+						<div class="col">
+							<label for="fullname">Họ và tên: </label>
+							<input type="text" id="fullname">
+							<div id="fullnameerror">Bạn chưa nhập họ tên</div>
+							<label for="address">Địa chỉ: </label>
+							<input type="text" id="address">
+							<div id="addresserror">Bạn chưa địa chỉ</div>
+							<label for="phone">Số điện thoại: </label>
+							<input type="text" id="phone">
+							<div id="phoneerror">Bạn chưa nhập số điện thoại</div>
+						</div>
+						<div class="col">
+							<label for="usernameSignUp">Tên đăng nhập: </label>
+							<input type="text" id="usernameSignUp">
+							<div id="usererror">Bạn chưa nhập tên đăng nhập</div>
+							<label for="passwordSignUp">Mật khẩu: </label>
+							<input type="password" id="passwordSignUp">
+							<div id="passworderror">Bạn chưa nhập mật khẩu</div>
+							<label for="passwordSignUp2">Nhập lại mật khẩu: </label>
+							<input type="password" id="passwordSignUp2">
+							<div id="password2error">Mật khẩu không trùng khớp</div>
+						</div>
+					</div>
+					<button type="submit" id="btnsignup">Đăng ký</button>
+					<p>Trở về trang <a href="#" onClick="showLogin()">Đăng nhập</a></p>
+				</form>
+			</div>
+		</div>
+		<!--Searchsection  begin -->
+		<div id="searchsection">
+			<div class="container">
+				<div class="close" onClick="closeSearch()">+</div>
+				<div class="searchbox">
+					<input type="text" placeholder="Tìm kiếm" id="search" onKeyUp="search()"><button onclick="showextend()"><img src="images/icon/arrow.svg"></button>
+				</div>
+				<div id="searchextend" class="">
+					<div>
+						<select id="brandsearch" onchange="search()">
+							<option value="all" selected>TẤT CẢ</option>
+							<option value="ltp">CASIO LTP</option>
+							<option value="mtp">CASIO MTP</option>
+							<option value="gshock">G-SHOCK</option>
+							<option value="vintage">VINTAGE</option>
+						</select>
+					</div>
+					<div> <input type="text" id="priceform" onchange="search()" placeholder="Giá từ"> &mdash; <input type="text" id="priceto" onchange="search()" placeholder="Đến"></div>
+				</div>
+				<div id="searchresult"></div>
+			</div>
+		</div>
+		<!--Searchsection  end -->
+		
+		<div class="entry-content single-page">
+            <h1 style="text-align: center;">Chính sách giao hàng</h1>
+            <h4 style="text-align: left;">CHÍNH SÁCH GIAO NHẬN HÀNG</h4>
+            <p style="text-align: left;">Đối với dịch vụ Ship COD, là hình thức thanh toán khi nhận hàng. Sau khi quý khách hàng cung cấp thông tin và địa chỉ, Nhân viên giao hàng sẽ giao sản phẩm và nhận tiền tận nơi theo yêu cầu của quý khách.</p>
+            <h4 style="text-align: left;"><strong>CHÍNH SÁCH VẬN CHUYỂN</strong></h4>
+            <p style="text-align: left;">Chính sách vận chuyển hàng hóa quy định đối tượng áp dụng, cách thức giao hàng, thời gian giao hàng và trách nhiệm của các bên liên quan đối với hàng hóa vận chuyển.</p>
+            <h4 style="text-align: left;"><strong>1.PHẠM VI ÁP DỤNG:</strong></h4>
+            <ul style="text-align: left;">
+            <li>Chính sách vận chuyển áp dụng đối với các khách hàng không mua trực tiếp tại&nbsp;<strong>Showroom Watchvn.</strong></li>
+            <li>Sản phẩm được giao hàng bằng dịch vụ Chuyển phát nhanh và dịch vụ Ship hàng COD (thanh toán khi nhận hàng) &nbsp;tới địa chỉ theo yêu cầu của khách hàng trên toàn quốc. Quý khách hàng được bóc hàng và kiểm tra hàng thoải mái trước khi quyết định thanh toán</li>
+            </ul>
+            <h4 style="text-align: left;"><strong>2. CÁCH THỨC GIAO HÀNG</strong></h4>
+            <ul style="text-align: left;">
+            <li><strong>Đối với dịch vụ chuyển phát nhanh:</strong>&nbsp;Quý khách thanh toán bằng cách chuyển khoản cho<strong> Watchvn </strong>qua một trong các tài khoản ngân hàng hiện có . Chúng tôi sẽ gửi sản phẩm cho quý khách bằng hình thức chuyển phát nhanh của bưu điện cho tất cả các địa chỉ trên toàn quốc một cách nhanh chóng và hoàn toàn miễn phí.</li>
+            <li><strong>Đối với dịch vụ ship COD</strong>, là hình thức thanh toán khi nhận hàng. Sau khi quý khách hàng cung cấp thông tin và địa chỉ, Nhân viên giao hàng sẽ giao sản phẩm và nhận tiền tận nơi theo yêu cầu của quý khách.</li>
+            </ul>
+            <h4 style="text-align: left;"><strong>3. THỜI GIAN GIAO HÀNG</strong></h4>
+            <ul style="text-align: left;">
+            <li>Sản phẩm sẽ được giao trong vòng 24 giờ tại khu vực nội thành Hà Nội, TP Hồ Chí Minh bằng hình thức nhân viên giao hàng trực tiếp.</li>
+            <li>Đối với khách hàng ở ngoại thành Hà Nội,TP Hồ Chí Minh, các Tỉnh/Thành phố khác chúng tôi sẽ giao hàng trong vòng 24-36 giờ bằng hình thức Chuyển phát nhanh và hình thức ship COD.Thời gian trên không tính các ngày lễ, ngày nghỉ.</li>
+            <li>Ngoài các hình thức giao hàng thông thường trên, chúng tôi sẽ áp dụng chính sách giao hàng ngay lập tức theo thỏa thuận hoặc yêu cầu đặc biệt của khách hàng nếu có khả năng. &nbsp;Ngoại trừ một số trường hợp khách quan, Chúng tôi có thể giao hàng chậm trễ so với thời gian cam kết do những điều kiện bất khả kháng như thời tiết xấu, điều kiện giao thông không thuận lợi, máy bay trễ chuyến, xe hỏng hóc trên đường giao hàng, trục trặc trong quá trình chờ xuất hàng.</li>
+            </ul>
+            <h4 style="text-align: left;"><strong>4. TRÁCH NHIỆM VỚI HÀNG HÓA VẬN CHUYỂN</strong></h4>
+            <ul style="text-align: left;">
+            <li>Dịch vụ vận chuyển do <strong>Casio&nbsp;Việt Nam</strong>&nbsp;trực tiếp thực hiện hoặc được ủy quyền chúng tôi sẽ chịu trách nhiệm với hàng hóa và các rủi ro như mất mát hoặc hư hại của hàng hóa trong suốt quá trình vận chuyển hàng.</li>
+            <li>Khách hàng có trách nhiệm kiểm tra hàng hóa khi nhận hàng. Khi phát hiện hàng hóa bị hư hại, trầy xước, bể vỡ, mốp méo, hoặc sai mẫu mã so với hàng đã đặt mua thì ký xác nhận tình trạng hàng hóa với Nhân viên giao nhậnvà thông báo ngay cho chúng tôi để giải quyết.</li>
+            <li>Sau khi khách đã ký nhận hàng mà không ghi chú hoặc có ý kiến về hàng hóa, đồng nghĩa với việc <strong>Casio&nbsp;Việt Nam</strong>&nbsp;không có trách nhiệm với những yêu cầu đổi trả vì hư hỏng, trầy xước, bể vỡ, mốp méo, sai hàng hóa, vv… sau này.</li>
+            <li>Nếu dịch vụ vận chuyển do khách chỉ định hoặc nhờ người thân, bạn bè chuyển giúp thì khách hàng sẽ chịu trách nhiệm với hàng hóa và các rủi ro như mất mát hoặc hư hại của hàng hóa trong suốt quá trình vận chuyển hàng từ cửa hàng đến khách hàng. Trong trường hợp này khách hàng sẽ chịu trách nhiệm cước phí và các tổn thất liên quan.</li>
+            <li>Trong một số trường hợp nhạy cảm: giá trị đơn hàng quá lớn và thời gian, địa điểm giao hàng có khả năng&nbsp;nguy hiểm. Chúng tôi sẽ chủ động liên lạc với Quý khách để thống nhất lại thời gian giao hàng cụ thể.</li>
+            </ul>
+            </div>
+		
+		<div id="foot">
+			<div class="container">
+				<div class="topfoot">
+					<div class="footmenu">
+						<h4>Chi nhánh</h4>
+						<p>273 An Dương Vương, Phường 3, Quận 5, TPHCM</p>
+						<p>500 Lý Thường Kiệt, Phường 7, Quận Tân Bình</p>
+						<p>123 Lê Trọng Tấn, Phường Sơn Kỳ, Quận Tân Phú</p>
+					</div>
+					<div class="footmenu">
+						<h4>Hỗ trợ chính sách</h4>
+						<a href="giaohang.html">Chính sách giao hàng</a>
+                        <br>
+						<a href="doihang.html">Chính sách đổi hàng</a>
+                        <br>
+						<a href="thanhtoan.html">Chính sách thanh toán</a>
+                        <br>
+						<a href="baohanh.html">Chính sách bảo hành</a>
+					</div>
+					
+					<div class="footmenu">
+						<h4>Thông tin liên hệ</h4>
+						<p>Địa chỉ: 273 An Dương Vương, P3, Quận 5, TPHCM</p>
+						<p>Số điện thoại: 0123456789 </p>
+						<p>Mail: watchvn@gmail.com</p>
+					</div>
+
+					<div class="footmenu">
+						<h4>Bản đồ chỉ dẫn</h4>
+						<img class="bando" src="./img/map.png " style="width: 100%">
+
+					</div>
+				</div>
+				<div class="botfoot">
+					<p>2021 &#169; WATCHVN BY GROUP 09</p>
+				</div>
+			</div>
+		</div>
+		<div id="customalert"></div>
+		<script src="watchvn.js"></script>
+	</body>
+</html>

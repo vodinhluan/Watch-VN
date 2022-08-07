@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>WATCHVN</title>
+		<link type="text/css" rel="stylesheet" href="watchvn.css">
+	</head>
+	<body onLoad="showMenu();showProduct();checklogin();">
+		<div id="nav">
+			<div class="container">
+				<div class="topnav">
+					
+					<ul class="right">
+						<li><button onClick="showform()"><img src="./img/icon_account1.png"></button></li>
+						<li><button onClick="location.href='cart.html'"><img src="./img/icon_cart.png"></button></li>
+						<li><button onClick="showSearch()"><img src="./img/icon_search1.png"></button></li>
+					</ul>
+				</div>
+				<div class="botnav">
+					<div class="logo"><a href="watchvn.html"><img src="./img/logo/logoPNG.png"></a></div>
+					<div><button id="btnmenu" onclick="showMenuMobile()">&#9776;</button></div>
+					<ul id="navmenu">
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="user" class="modal">
+			<div id="login">
+				<form id="loginform">
+					<button type="button" class="close" onClick="closeform()">+</button>
+					<h2>ĐĂNG NHẬP</h2>
+					<div class="logininfo">
+						<div class="col">
+							<label for="usernameLogin">Tên đăng nhập:</label>
+							<input type="text" id="usernameLogin">
+							<div id="usernameerror">Bạn chưa nhập tên đăng nhập</div>
+							<label for="passwordLogin">Mật khẩu:</label>
+							<input type="password" id="passwordLogin">
+							<div id="passwordloginerror">Bạn chưa nhập mật khẩu</div>
+						</div>
+					</div>
+					<button type="submit" id="btnlogin">Login</button>
+					<p>Bạn chưa có tài khoản? <a href="#" onClick="showSignUp()">Đăng ký</a></p>
+				</form>
+			</div>
+			<div id="signup">
+				<form id="signupform">
+					<button type="button" class="close" onClick="closeform()">+</button>
+					<h2>ĐĂNG KÝ</h2>
+					<div class="signupinfo">
+						<div class="col">
+							<label for="fullname">Họ và tên: </label>
+							<input type="text" id="fullname">
+							<div id="fullnameerror">Bạn chưa nhập họ tên</div>
+							<label for="address">Địa chỉ: </label>
+							<input type="text" id="address">
+							<div id="addresserror">Bạn chưa địa chỉ</div>
+							<label for="phone">Số điện thoại: </label>
+							<input type="text" id="phone">
+							<div id="phoneerror">Bạn chưa nhập số điện thoại</div>
+						</div>
+						<div class="col">
+							<label for="usernameSignUp">Tên đăng nhập: </label>
+							<input type="text" id="usernameSignUp">
+							<div id="usererror">Bạn chưa nhập tên đăng nhập</div>
+							<label for="passwordSignUp">Mật khẩu: </label>
+							<input type="password" id="passwordSignUp">
+							<div id="passworderror">Bạn chưa nhập mật khẩu</div>
+							<label for="passwordSignUp2">Nhập lại mật khẩu: </label>
+							<input type="password" id="passwordSignUp2">
+							<div id="password2error">Mật khẩu không trùng khớp</div>
+						</div>
+					</div>
+					<button type="submit" id="btnsignup">Đăng ký</button>
+					<p>Trở về trang <a href="#" onClick="showLogin()">Đăng nhập</a></p>
+				</form>
+			</div>
+		</div>
+		<div id="searchsection">
+			<div class="container">
+				<div class="close" onClick="closeSearch()">+</div>
+				<div class="searchbox">
+					<input type="text" placeholder="Tìm kiếm" id="search" onKeyUp="search()"><button onclick="showextend()"><img src="images/icon/arrow.svg"></button>
+				</div>
+				<div id="searchextend" class="">
+					<div>
+						<select id="brandsearch" onchange="search()">
+							<option value="all" selected>TẤT CẢ</option>
+							<option value="ltp">CASIO LTP</option>
+							<option value="mtp">CASIO MTP</option>
+							<option value="gshock">G-SHOCK</option>
+							<option value="vintage">VINTAGE</option>
+						</select>
+					</div>
+					<div> <input type="text" id="priceform" onchange="search()" placeholder="Giá từ"> &mdash; <input type="text" id="priceto" onchange="search()" placeholder="Đến"></div>
+				</div>
+				<div id="searchresult"></div>
+			</div>
+		</div>
+
+		<div class="entry-content single-page" style="text-align: left;">
+            <h4>CHÍNH SÁCH ĐỔI HÀNG</h4>
+            <p>Trong vòng 07 ngày kể từ ngày mua hàng, Quý khách có thể yêu cầu đổi hàng, Quý khách vui lòng chịu chi phí đổi hàng như phí vận chuyển, giá trị chênh lệch sản phẩm . <strong>Casio&nbsp;Việt Nam </strong>chỉ đổi sản phẩm có giá trị bằng hoặc lớn hơn sản phẩm đã mua. Thời hạn 07 ngày được tính theo dấu bưu điện khi Quý khách gửi sản phẩm về cho chúng tôi hoặc thời gian chúng tôi tiếp nhận yêu cầu trực tiếp (tại showroom) của Quý khách.</p>
+            <h4><strong>QUÝ KHÁCH LƯU Ý:</strong></h4>
+            <p>Đồng hồ mua rồi có thể đổi với tình trạng mới 100% trong vòng 7 ngày nếu đảm bảo các điều kiện bên dưới:</p>
+            <h4><strong>ĐIỀU KIỆN ĐỔI SẢN PHẨM</strong></h4>
+            <p><strong>Quý khách vui lòng đọc kỹ các điều khoản nêu rõ trong chính sách đổi hàng của chúng tôi để đảm bảo sản phẩm được đổi cần thỏa mãn tất cả các điều kiện sau đây:</strong></p>
+            <ul>
+            <li><strong>Sản phẩm không nằm trong danh sách giảm giá, khuyến mại.</strong></li>
+            <li>Sản phẩm muốn áp dụng chính sách đổi hàng phải là sản phẩm không có dấu hiệu đã qua sử dụng và còn nguyên tem, mác, nguyên đai, nguyên kiện ban đầu.</li>
+            <li>Sản phẩm không bị dây bẩn, trầy xước, hư hỏng, dính hoá chất hoặc có dấu hiệu cạy mở.</li>
+            <li>Các bộ phận, linh kiện, phụ kiện, tài liệu hướng dẫn sử dụng, tài liệu kỹ thuật, quà tặng kèm theo (nếu có), … phải còn đầy đủ và không có dấu hiệu đã qua sử dụng.</li>
+            <li>Hộp đựng, bao bì đóng gói sản phẩm còn nguyên vẹn, không bị móp, rách, ố vàng, …</li>
+            <li>Khách hàng phải còn giữ hóa đơn mua hàng tại cửa hàng.</li>
+            </ul>
+            <h4><strong>CÁC TRƯỜNG HỢP ĐƯỢC ĐỔI HÀNG:</strong></h4>
+            <p><strong>1. Đổi hàng vì không ưng ý</strong></p>
+            <p>Những mặt hàng nào quý khách hàng được đổi lại?</p>
+            <p>Tất cả mặt hàng mua từ <strong>Casio&nbsp;Việt Nam</strong>&nbsp;đều có thể đổi trong vòng 07 ngày kể từ ngày nhận hàng. Chúng tôi sẽ đổi sản phẩm khác theo yêu cầu của khách hàng khi sản phầm mang đổi còn nguyên vẹn. Nguyên vẹn ở đây nghĩa là hàng hóa phải còn đầy đủ các bộ phận, không có dấu hiệu sử dụng hoặc hỏng hóc.</p>
+            <p>Còn nguyên điều kiện ban đầu nghĩa là sản phẩm trong điều kiện còn mới nguyên bao gồm:</p>
+            <ul>
+            <li>Chưa xuất hiện tình trạng đã qua sử dụng, bề mặt vỏ đồng hồ không có dấu hiệu xước dù rất nhỏ.</li>
+            <li>Đầy đủ các phụ kiện: Hộp,túi, tem, phiếu bảo hành, tem thương hiệu và hướng dẫn kỹ thuật, hóa đơn v.v…</li>
+            <li>Đồng hồ không được giảm giá quá 15%</li>
+            </ul>
+            <p><strong>2. Đổi hàng vì hàng mua bị lỗi</strong></p>
+            <p>Khách hàng vui lòng kiểm tra hàng hóa trước khi thanh toán. Trong trường hợp sản phẩm của khách hàng bị hư hại trong quá trình vận chuyển, quý khách vui lòng từ chối nhận và gửi lại sản phẩm cho cửa hàng. Đồng thời báo ngay cho bên bộ phận hỗ trợ khách hàng để chúng tôi gửi cho quý khách mặt hàng khác.</p>
+            <p><strong>3. Đổi hàng vì sản phẩm giao không đúng theo đơn đặt hàng</strong></p>
+            <p>Bạn nghĩ rằng sản phẩm giao cho bạn không đúng với đơn đặt hàng? Hãy liên hệ với chúng tôi càng sớm càng tốt, hệ thống của chúng tôi sẽ kiểm tra có đúng hàng của bạn bị gửi nhầm không. Trong trường hợp đó, chúng tôi sẽ thay thế đúng mặt hàng bạn yêu cầu (khi có hàng).</p>
+            <h4><strong>CÁC TRƯỜNG HỢP KHÔNG ĐƯỢC ĐỔI HÀNG:</strong></h4>
+            <p>Tuy nhiên chúng tôi<strong>&nbsp;không chấp nhận việc đổi hàng với các mặt hàng sau:</strong></p>
+            <ul>
+            <li>Các mặt hàng áp dụng khuyến mãi, giảm giá</li>
+            <li>Các mặt hàng được sử dụng làm quà tặng khách hàng.</li>
+            <li>Các mặt hàng không thỏa mãn điều kiện đổi sản phẩm</li>
+            </ul>
+            <h4><strong>CHI PHÍ VẬN CHUYỂN ĐỔI HÀNG:</strong></h4>
+            <p>Trong trường hợp hàng giao bị lỗi hoặc sai quy cách. Chúng tôi sẽ chịu chi phí vận chuyển trả hàng. Nếu hàng được giao đúng với đơn đặt hàng và không sai hỏng thì chi phí vận chuyển đổi hàng sẽ do khách hàng chịu.</p>
+            <p>Sau khi Trung tâm hỗ trợ khách hàng lên lịch hẹn nhận hàng để đổi, bộ phận giao nhận của chúng tôi sẽ chỉ đến nhận lại hàng một lần duy nhất. Nếu vì lí do nào đó bạn không thể giao trả hàng vào lần hẹn đó thì bạn có trách nhiệm tự mang hàng cần đổi đến địa chỉ giao dịch của chúng tôi, trước khi đến vui lòng gọi hotline để đặt lịch hẹn.</p>
+            <h4><strong>LỆ PHÍ ĐỔI HÀNG/ PHÍ LƯU LẠI KHO:</strong></h4>
+            <ul>
+            <li>Các mặt hàng Sale Off, giảm giá, khuyến mại:&nbsp;<strong>KHÔNG CHẤP NHẬN ĐỔI HÀNG</strong></li>
+            <li>Các mặt hàng không còn nguyên điều kiện ban đầu, bị hỏng hoặc hư hao không do lỗi của chúng tôi:&nbsp;<strong>KHÔNG CHẤP NHẬN ĐỔI HÀNG</strong></li>
+            <li>Đồng hồ bị mất bảo hành, thẻ, hộp… sách giới thiệu hướng dẫn:&nbsp;<strong>KHÔNG CHẤP NHẬN ĐỔI HÀNG</strong></li>
+            </ul>
+            <h3><strong>CÁCH THỨC ĐỔI HÀNG:</strong></h3>
+            <ul>
+            <li>Đối với các giao dịch đổi sang sản phẩm có giá thành bằng hoặc cao hơn sản phẩm cũ, sau khi kiểm tra, hàng đổi lại còn nguyên vẹn, quý khách sẽ thanh toán thêm số tiền chênh lệch của hai sản phẩm này.</li>
+            <li>Đối với trường hợp khách hàng đổi sản phẩm thấp tiền hơn sản phẩm ban đầu, Chúng tôi sẽ hoàn tiền mua hàng hoặc tiền chênh lệch bằng cách chuyển vào tài khoản mua hàng của bạn dưới hình thức tích điểm, sử dụng cho các giao dịch mua bán hay sửa chữa của quý khách hàng vào lần sau tại hệ thống.</li>
+            <li>Phụ thuộc vào cách thức bạn thanh toán khi mua hàng. Hãy liên hệ với bộ phận chăm sóc khách hàng của chúng tôi để được làm rõ với từng trường hợp riêng biệt</li>
+            </ul>
+            
+            </div>
+		
+		<div id="foot">
+			<div class="container">
+				<div class="topfoot">
+					<div class="footmenu">
+						<h4>Chi nhánh</h4>
+						<p>273 An Dương Vương, Phường 3, Quận 5, TPHCM</p>
+						<p>500 Lý Thường Kiệt, Phường 7, Quận Tân Bình</p>
+						<p>123 Lê Trọng Tấn, Phường Sơn Kỳ, Quận Tân Phú</p>
+					</div>
+					<div class="footmenu">
+						<h4>Hỗ trợ chính sách</h4>
+						<a href="giaohang.html">Chính sách giao hàng</a>
+                        <br>
+						<a href="doihang.html">Chính sách đổi hàng</a>
+                        <br>
+						<a href="thanhtoan.html">Chính sách thanh toán</a>
+                        <br>
+						<a href="baohanh.html">Chính sách bảo hành</a>
+					</div>
+					
+					<div class="footmenu">
+						<h4>Thông tin liên hệ</h4>
+						<p>Địa chỉ: 273 An Dương Vương, P3, Quận 5, TPHCM</p>
+						<p>Số điện thoại: 0123456789 </p>
+						<p>Mail: watchvn@gmail.com</p>
+					</div>
+
+					<div class="footmenu">
+						<h4>Bản đồ chỉ dẫn</h4>
+						<img class="bando" src="./img/map.png " style="width: 100%">
+
+					</div>
+				</div>
+				<div class="botfoot">
+					<p>2021 &#169; WATCHVN BY GROUP 09</p>
+				</div>
+			</div>
+		</div>
+		<div id="customalert"></div>
+		<script src="watchvn.js"></script>
+	</body>
+</html>
